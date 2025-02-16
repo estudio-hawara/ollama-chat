@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ollama-chat"
+version = "0.1.0"
+description = "Local chat using Ollama and Streamlit"
+authors = ["Carlos Capote Pérez-Andreu <carlos.capote@hawara.es>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+streamlit = "^1.42.0"
+ollama = "^0.4.7"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
