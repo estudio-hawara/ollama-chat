@@ -3,6 +3,7 @@ from ollama._types import ResponseError
 from ollama_chat.models import list_models
 from ollama_chat.chat.chat_base import ChatBase
 from ollama_chat.chat.ollama_chat import OllamaChat
+from ollama_chat.settings import Settings
 
 class Ui:
     def __init__(self, chat: ChatBase):
@@ -14,11 +15,8 @@ class Ui:
 
     def run(self):
         with st.sidebar:
-            st.header("Settings")
-            st.session_state["model"] = st.selectbox("Model", list_models())
-
             st.header("Session")
-            st.button("Reset", on_click=self.reset)
+            st.button("Clear messages", on_click=self.reset)
 
         st.title("Chat")
 
@@ -41,6 +39,9 @@ class Ui:
                     st.write(e.error)
 
 if __name__ == "__main__":
+    settings = Settings()
+    st.session_state["model"] = settings.ollama_model
+
     chat = OllamaChat(st.session_state)
     ui = Ui(chat)
     ui.run()

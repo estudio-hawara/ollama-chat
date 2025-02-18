@@ -14,6 +14,22 @@ and install the dependencies:
 poetry install
 ```
 
+## Configure
+
+The default Ollama settings are the ones defined in `env.default`:
+
+```bash
+OLLAMA_MODEL=deepseek-r1:7b
+OLLAMA_SERVER=localhost
+OLLAMA_PORT=11434
+```
+
+If you want to define your own values, create a `.env` file with the variables and values that you want to customize:
+
+```bash
+OLLAMA_MODEL=deepseek-r1:14b
+```
+
 ## Open a shell
 
 Once the application has been installed, you can start working with it. To do so, first start a Poetry shell by running:
